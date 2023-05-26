@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto</title>
+    <link rel="stylesheet" href="stylecontacto.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/index.html">Inicio</a></li>
+          <li><a href="#">Productos</a></li>
+          <li class="active"><a href="/contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section>
+      <h1>Contacto</h1>
+      <form>
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <label for="message">Mensaje:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>
+        &copy; 2023 Tienda Me Duelen Los Huevos. Todos los derechos reservados.
+      </p>
+    </footer>
+
+    <script>
+      // Obtener referencia al formulario
+      var form = document.querySelector("form");
+
+      // Obtener referencias a los campos del formulario
+      var nameInput = document.getElementById("name");
+      var emailInput = document.getElementById("email");
+      var messageInput = document.getElementById("message");
+
+      // Agregar evento de envío del formulario
+      form.addEventListener("submit", function (event) {
+        // Detener el envío del formulario
+        event.preventDefault();
+
+        // Validar los campos del formulario
+        var isValid = true;
+
+        if (nameInput.value.trim() === "") {
+          nameInput.classList.add("error");
+          isValid = false;
+        } else {
+          nameInput.classList.remove("error");
+        }
+
+        if (
+          emailInput.value.trim() === "" ||
+          !isValidEmail(emailInput.value.trim())
+        ) {
+          emailInput.classList.add("error");
+          isValid = false;
+        } else {
+          emailInput.classList.remove("error");
+        }
+
+        if (messageInput.value.trim() === "") {
+          messageInput.classList.add("error");
+          isValid = false;
+        } else {
+          messageInput.classList.remove("error");
+        }
+
+        // Si el formulario es válido, enviar los datos
+        if (isValid) {
+          // Aquí puedes agregar el código para enviar los datos del formulario
+          alert("Formulario válido. Enviar datos...");
+          form.reset();
+        }
+      });
+
+      // Función para validar el formato de un correo electrónico
+      function isValidEmail(email) {
+        // Expresión regular para validar el formato del correo electrónico
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+    </script>
+  </body>
+</html>
