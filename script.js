@@ -13,7 +13,7 @@ getCharacters((data) => {
     const article = document.createRange().createContextualFragment(/*html*/ `
     <article class="box">
     <div class="image-container">
-      <img src="${item.image}" alt="${item.category}" id="zoom-image" />
+      <img src="${item.image}" alt="${item.category}" />
       <div class="overlay">
         <div class="overlay-content">
           Comprar

@@ -85,19 +85,6 @@ main {
   margin-bottom: 15px;
 }
 
-.show-more-button {
-  display: block;
-  margin-top: 10px;
-  color: #777777;
-  font-size: 14px;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.show-more-button:hover {
-  color: #333333;
-}
-
 .item p {
   font-size: 14px;
   line-height: 1.4;
@@ -106,16 +93,6 @@ main {
   display: -webkit-box;
   -webkit-line-clamp: 3; /* Limita a 3 líneas de texto */
   -webkit-box-orient: vertical;
-}
-
-.show-more-button {
-  display: block;
-  margin-top: 10px;
-  color: #777777;
-  font-size: 14px;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  cursor: pointer;
 }
 
 footer {
@@ -164,10 +141,6 @@ nav ul li a {
   justify-content: center;
 }
 
-button:hover {
-  background-color: #555;
-}
-
 .image-container {
   position: relative;
 }
@@ -197,4 +170,71 @@ button:hover {
   height: 50px;
 }
 
-/*area de contacto*/
+/*medias*/
+
+@media (max-width: 480px) {
+  main {
+    grid-template-columns: 1fr; /* Cambia a una columna en dispositivos móviles */
+  }
+
+  .box {
+    max-width: 100%; /* Ocupa todo el ancho disponible */
+  }
+
+  .item h2 {
+    max-width: none; /* Ancho máximo automático en dispositivos móviles */
+  }
+
+  .image-container img {
+    max-width: 100%; /* Imagen ocupa todo el ancho disponible */
+    max-height: none; /* Altura automática */
+    min-height: auto; /* Altura automática */
+    min-width: auto; /* Anchura automática */
+    object-fit: contain; /* Ajusta la imagen sin recortarla */
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr 1fr; /* Cambia a una columna en dispositivos móviles */
+    gap: 10px; /* Reduce el espacio entre elementos */
+  }
+
+  .box {
+    max-width: 200px; /* Reduce el ancho máximo de los elementos */
+  }
+
+  .item h2 {
+    max-width: 180px; /* Reduce el ancho máximo del título */
+  }
+}
+
+@media (min-width: 769px) {
+  main {
+    gap: 30px; /* Aumenta el espacio entre elementos */
+    grid-template-columns: 1fr 1fr 1fr; /* Cambia a una columna en dispositivos móviles */
+  }
+
+  .box {
+    max-width: 300px; /* Ancho máximo original */
+  }
+
+  .item h2 {
+    max-width: 235px; /* Ancho máximo original */
+  }
+}
+
+@media (min-width: 1400px) {
+  main {
+    gap: 30px; /* Aumenta el espacio entre elementos */
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* Cambia a una columna en dispositivos móviles */
+  }
+
+  .box {
+    max-width: 300px; /* Ancho máximo original */
+  }
+
+  .item h2 {
+    max-width: 235px; /* Ancho máximo original */
+  }
+}
